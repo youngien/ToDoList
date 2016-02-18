@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "ViewController.saveNewItem() -&gt; ():ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(ToDoList.Item_Item_ *)((ToDoList.Item_Item_ *)0x00007fc4b067a1c0)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.tableView(UITableView, didSelectRowAtIndexPath : NSIndexPath) -&gt; ():ViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.deleteSelectedItem(NSIndexPath) -&gt; ():ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "items">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.tableView(UITableView, cellForRowAtIndexPath : NSIndexPath) -&gt; UITableViewCell:ViewController.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

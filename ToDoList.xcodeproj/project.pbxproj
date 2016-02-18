@@ -13,6 +13,8 @@
 		56DF7D8F1C75801E00BF4C8D /* ToDoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56DF7D8D1C75801E00BF4C8D /* ToDoList.xcdatamodeld */; };
 		56DF7D911C75801E00BF4C8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56DF7D901C75801E00BF4C8D /* Assets.xcassets */; };
 		56DF7D941C75801E00BF4C8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56DF7D921C75801E00BF4C8D /* LaunchScreen.storyboard */; };
+		56DF7D9D1C75829900BF4C8D /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DF7D9B1C75829900BF4C8D /* Item+CoreDataProperties.swift */; };
+		56DF7D9E1C75829900BF4C8D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DF7D9C1C75829900BF4C8D /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		56DF7D901C75801E00BF4C8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56DF7D931C75801E00BF4C8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56DF7D951C75801E00BF4C8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56DF7D9B1C75829900BF4C8D /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataProperties.swift"; path = "../Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		56DF7D9C1C75829900BF4C8D /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = ../Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 		56DF7D851C75801E00BF4C8D /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				56DF7D9B1C75829900BF4C8D /* Item+CoreDataProperties.swift */,
+				56DF7D9C1C75829900BF4C8D /* Item.swift */,
 				56DF7D861C75801E00BF4C8D /* AppDelegate.swift */,
 				56DF7D881C75801E00BF4C8D /* ViewController.swift */,
 				56DF7D8A1C75801E00BF4C8D /* Main.storyboard */,
@@ -138,8 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56DF7D9E1C75829900BF4C8D /* Item.swift in Sources */,
 				56DF7D891C75801E00BF4C8D /* ViewController.swift in Sources */,
 				56DF7D8F1C75801E00BF4C8D /* ToDoList.xcdatamodeld in Sources */,
+				56DF7D9D1C75829900BF4C8D /* Item+CoreDataProperties.swift in Sources */,
 				56DF7D871C75801E00BF4C8D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

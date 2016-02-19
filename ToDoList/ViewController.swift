@@ -63,7 +63,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        didSelectAlertPopup(indexPath)
+//        didSelectAlertPopup(indexPath)
     }
     
     
@@ -73,7 +73,35 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
-    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete{
+            let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+            //let item = NSEntityDescription.insertNewObjectForEntityForName("Item", inManagedObjectContext: context) as! Item
+            
+            context.deleteObject(items[indexPath.row] as NSManagedObject)
+            
+            do{
+                try context.save()
+            } catch _ {
+                
+            }
+            
+            let request = NSFetchRequest(entityName: "Item")
+            var results : [AnyObject]?
+            
+            do {
+                results = try context.executeFetchRequest(request)
+            } catch _ {
+                results = nil
+            }
+            
+            if results != nil{
+                self.items = results as! [Item]
+            }
+            
+            self.tabelView.reloadData()
+        }
+    }
     
     @IBAction func addButtonPressed(sender: AnyObject) {
         alertPopup()
@@ -135,60 +163,60 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    func deleteSelectedItem(indexPath: NSIndexPath){
-        
-        //        print("Item Saved!")
-        let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        //let item = NSEntityDescription.insertNewObjectForEntityForName("Item", inManagedObjectContext: context) as! Item
-        
-        context.deleteObject(items[indexPath.row] as NSManagedObject)
-        
-        do{
-            try context.save()
-        } catch _ {
-            
-        }
-        
-        let request = NSFetchRequest(entityName: "Item")
-        var results : [AnyObject]?
-        
-        do {
-            results = try context.executeFetchRequest(request)
-        } catch _ {
-            results = nil
-        }
-        
-        if results != nil{
-            self.items = results as! [Item]
-        }
-        
-        self.tabelView.reloadData()
-        
-        
-        //self.items.removeAtIndex(indexPath.row)
-    }
+//    func deleteSelectedItem(indexPath: NSIndexPath){
+//        
+//        //        print("Item Saved!")
+//        let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+//        //let item = NSEntityDescription.insertNewObjectForEntityForName("Item", inManagedObjectContext: context) as! Item
+//        
+//        context.deleteObject(items[indexPath.row] as NSManagedObject)
+//        
+//        do{
+//            try context.save()
+//        } catch _ {
+//            
+//        }
+//        
+//        let request = NSFetchRequest(entityName: "Item")
+//        var results : [AnyObject]?
+//        
+//        do {
+//            results = try context.executeFetchRequest(request)
+//        } catch _ {
+//            results = nil
+//        }
+//        
+//        if results != nil{
+//            self.items = results as! [Item]
+//        }
+//        
+//        self.tabelView.reloadData()
+//        
+//        
+//        //self.items.removeAtIndex(indexPath.row)
+//    }
     
-    func didSelectAlertPopup(indexPath: NSIndexPath){
-        let alert = UIAlertController(title: "Delete selected Item", message: nil, preferredStyle: .Alert)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) {
-            UIAlertAction in
-            alert.dismissViewControllerAnimated(true, completion: nil)
-        }
-        
-        let deleteAction = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default) {
-            UIAlertAction in
-            self.deleteSelectedItem(indexPath)
-        }
-        
-        alert.addAction(deleteAction)
-        alert.addAction(cancelAction)
-        //alert.addTextFieldWithConfigurationHandler(configurationsTextField)
-        
-        self.presentViewController(alert, animated: true, completion: nil)
-        
-        
-        print("Deleting this! \(self.items[indexPath.row].title)")
-    }
+//    func didSelectAlertPopup(indexPath: NSIndexPath){
+//        let alert = UIAlertController(title: "Delete selected Item", message: nil, preferredStyle: .Alert)
+//        
+//        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) {
+//            UIAlertAction in
+//            alert.dismissViewControllerAnimated(true, completion: nil)
+//        }
+//        
+//        let deleteAction = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default) {
+//            UIAlertAction in
+//            self.deleteSelectedItem(indexPath)
+//        }
+//        
+//        alert.addAction(deleteAction)
+//        alert.addAction(cancelAction)
+//        //alert.addTextFieldWithConfigurationHandler(configurationsTextField)
+//        
+//        self.presentViewController(alert, animated: true, completion: nil)
+//        
+//        
+//        print("Deleting this! \(self.items[indexPath.row].title)")
+//    }
 }
 
